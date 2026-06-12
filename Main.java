@@ -1,44 +1,30 @@
 import java.util.Scanner;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
 
 public class Main {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            Calculator calc = new Calculator();
+            boolean running = true;
+            System.out.println("=== Advanced Calculator ===");
 
-            System.out.println("=== Basic Calculator ===");
-            System.out.print("Enter first number: ");
-            double num1 = scanner.nextDouble();
+            while (running) {
+                System.out.print("Enter expression (or type 'exit' to quit): ");
+                String input = scanner.nextLine();
 
-            System.out.print("Enter second number: ");
-            double num2 = scanner.nextDouble();
-
-            System.out.print("Choose operation (+, -, *, /): ");
-            char operation = scanner.next().charAt(0);
-
-            if (operation == '+') {
-                System.out.println("Result: " + calc.add(num1, num2));
-            } else if (operation == '-') {
-                System.out.println("Result: " + calc.subtract(num1, num2));
-            } else if (operation == '*') {
-                System.out.println("Result: " + calc.multiply(num1, num2));
-            } else if (operation == '/') {
-                System.out.println("Result: " + calc.divide(num1, num2));
-            } else {
-                System.out.println("Invalid operation selected.");
+                if (input.equalsIgnoreCase("exit")) {
+                    running = false;
+                    System.out.println("Calculator closed. Goodbye!");
+                } else {
+                    try {
+                        Expression expression = new ExpressionBuilder(input).build();
+                        double result = expression.evaluate();
+                        System.out.println("Result: " + result);
+                    } catch (Exception e) {
+                        System.out.println("Invalid expression. Please try again.");
+                    }
+                }
             }
         }
-    }
-}
-
-class Calculator {
-    public double add(double a, double b) { return a + b; }
-    public double subtract(double a, double b) { return a - b; }
-    public double multiply(double a, double b) { return a * b; }
-    public double divide(double a, double b) {
-        if (b == 0) {
-            System.out.println("Error: Division by zero is not allowed.");
-            return Double.NaN;
-        }
-        return a / b;
     }
 }
