@@ -19,7 +19,7 @@ public class Calculator {
     public double divide(double a, double b) {
         if (b == 0) {
             System.out.println("Error: Division by zero is not allowed.");
-            return Double.NaN; // Not a Number
+            return Double.NaN; 
         }
         return a / b;
     }
