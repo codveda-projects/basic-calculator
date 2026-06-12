@@ -88,7 +88,7 @@ public class Main {
                 while (!stack.isEmpty() && !stack.peek().equals("(")) {
                     output.add(stack.pop());
                 }
-                stack.pop(); // remove "("
+                stack.pop(); 
             }
         }
 
