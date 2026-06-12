@@ -5,7 +5,7 @@ This project was created as part of an internship learning exercise to practice 
 
 ---
 
-## ✨ Features
+##  Features
 - Addition (`+`)
 - Subtraction (`-`)
 - Multiplication (`*`)
@@ -16,4 +16,4 @@ This project was created as part of an internship learning exercise to practice 
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
