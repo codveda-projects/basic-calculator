@@ -17,3 +17,8 @@ This project was created as part of an internship learning exercise to practice 
 ---
 
 ##  Project Structure
+Basic Calculator:
+-Screenshots
+-Calculator.java
+-Main.java
+-README.md
